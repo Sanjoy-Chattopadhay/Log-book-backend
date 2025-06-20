@@ -95,7 +95,7 @@ router.post("/delete/:id", async (req, res) => {
   const { password } = req.body;
   const { id } = req.params;
 
-  const correctPassword = "admin123"; // Replace with process.env in production
+  const correctPassword = process.env.DELETE_PASSWORD; // Replace with process.env in production
 
   if (password !== correctPassword) {
     return res.status(403).json({ success: false, message: "Wrong password" });
